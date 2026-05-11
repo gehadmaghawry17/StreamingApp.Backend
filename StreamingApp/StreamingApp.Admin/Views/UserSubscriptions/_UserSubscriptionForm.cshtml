@@ -1,0 +1,58 @@
+@model UserSubscriptionFormViewModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="admin-form-grid">
+    <div class="admin-field">
+        <label class="form-label" asp-for="UserId"></label>
+        <select class="form-select" asp-for="UserId" asp-items="Model.UserOptions">
+            <option value="0">Select user</option>
+        </select>
+        <span class="text-danger" asp-validation-for="UserId"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="SubscriptionPlanId"></label>
+        <select class="form-select" asp-for="SubscriptionPlanId" asp-items="Model.PlanOptions">
+            <option value="0">Select plan</option>
+        </select>
+        <span class="text-danger" asp-validation-for="SubscriptionPlanId"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="Status"></label>
+        <select class="form-select" asp-for="Status" asp-items="Html.GetEnumSelectList<SubscriptionStatus>()"></select>
+        <span class="text-danger" asp-validation-for="Status"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="StartDate"></label>
+        <input class="form-control" asp-for="StartDate" type="datetime-local" />
+        <span class="text-danger" asp-validation-for="StartDate"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="EndDate"></label>
+        <input class="form-control" asp-for="EndDate" type="datetime-local" />
+        <span class="text-danger" asp-validation-for="EndDate"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="CancelledAt"></label>
+        <input class="form-control" asp-for="CancelledAt" type="datetime-local" />
+        <span class="text-danger" asp-validation-for="CancelledAt"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="AutoRenew"></label>
+        <div class="form-check admin-check">
+            <input class="form-check-input" asp-for="AutoRenew" />
+            <label class="form-check-label" asp-for="AutoRenew">Auto renew</label>
+        </div>
+    </div>
+</div>
+
+<div class="admin-form-actions">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+</div>

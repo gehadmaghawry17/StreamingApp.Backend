@@ -1,0 +1,48 @@
+@model EpisodeFormViewModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="admin-form-grid">
+    <div class="admin-field">
+        <label class="form-label" asp-for="SeasonId"></label>
+        <select class="form-select" asp-for="SeasonId" asp-items="Model.SeasonOptions">
+            <option value="0">Select season</option>
+        </select>
+        <span class="text-danger" asp-validation-for="SeasonId"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="EpisodeNumber"></label>
+        <input class="form-control" asp-for="EpisodeNumber" type="number" min="1" />
+        <span class="text-danger" asp-validation-for="EpisodeNumber"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="Title"></label>
+        <input class="form-control" asp-for="Title" autocomplete="off" />
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="DurationSeconds"></label>
+        <input class="form-control" asp-for="DurationSeconds" type="number" min="1" />
+        <span class="text-danger" asp-validation-for="DurationSeconds"></span>
+    </div>
+
+    <div class="admin-field admin-field-wide">
+        <label class="form-label" asp-for="Description"></label>
+        <textarea class="form-control" asp-for="Description" rows="4"></textarea>
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+
+    <div class="admin-field admin-field-wide">
+        <label class="form-label" asp-for="VideoUrl"></label>
+        <input class="form-control" asp-for="VideoUrl" />
+        <span class="text-danger" asp-validation-for="VideoUrl"></span>
+    </div>
+</div>
+
+<div class="admin-form-actions">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+</div>

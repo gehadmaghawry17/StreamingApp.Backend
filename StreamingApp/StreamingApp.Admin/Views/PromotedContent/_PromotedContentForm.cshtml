@@ -1,0 +1,42 @@
+@model PromotedContentFormViewModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="admin-form-grid">
+    <div class="admin-field">
+        <label class="form-label" asp-for="Label"></label>
+        <input class="form-control" asp-for="Label" autocomplete="off" />
+        <span class="text-danger" asp-validation-for="Label"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="ContentType"></label>
+        <select class="form-select" asp-for="ContentType" asp-items="Html.GetEnumSelectList<ContentType>()"></select>
+        <span class="text-danger" asp-validation-for="ContentType"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="ContentId"></label>
+        <input class="form-control" asp-for="ContentId" type="number" min="1" />
+        <span class="text-danger" asp-validation-for="ContentId"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="DisplayOrder"></label>
+        <input class="form-control" asp-for="DisplayOrder" type="number" />
+        <span class="text-danger" asp-validation-for="DisplayOrder"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="IsActive"></label>
+        <div class="form-check admin-check">
+            <input class="form-check-input" asp-for="IsActive" />
+            <label class="form-check-label" asp-for="IsActive">Active</label>
+        </div>
+    </div>
+</div>
+
+<div class="admin-form-actions">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+</div>

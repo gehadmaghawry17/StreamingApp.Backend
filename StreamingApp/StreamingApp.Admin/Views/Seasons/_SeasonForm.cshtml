@@ -1,0 +1,30 @@
+@model SeasonFormViewModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="admin-form-grid">
+    <div class="admin-field">
+        <label class="form-label" asp-for="SeriesId"></label>
+        <select class="form-select" asp-for="SeriesId" asp-items="Model.SeriesOptions">
+            <option value="0">Select series</option>
+        </select>
+        <span class="text-danger" asp-validation-for="SeriesId"></span>
+    </div>
+
+    <div class="admin-field">
+        <label class="form-label" asp-for="SeasonNumber"></label>
+        <input class="form-control" asp-for="SeasonNumber" type="number" min="1" />
+        <span class="text-danger" asp-validation-for="SeasonNumber"></span>
+    </div>
+
+    <div class="admin-field admin-field-wide">
+        <label class="form-label" asp-for="Title"></label>
+        <input class="form-control" asp-for="Title" autocomplete="off" />
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+</div>
+
+<div class="admin-form-actions">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+</div>

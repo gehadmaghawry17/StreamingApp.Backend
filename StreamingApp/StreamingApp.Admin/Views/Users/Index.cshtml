@@ -1,0 +1,53 @@
+@model IReadOnlyList<UserListItemViewModel>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<section class="admin-page">
+    <div class="admin-page-header">
+        <div>
+            <p class="admin-eyebrow">Accounts</p>
+            <h1>Users</h1>
+            <p class="admin-subtitle">Manage user email and verification state. User creation belongs to the auth flow.</p>
+        </div>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <div class="admin-empty">
+            <h2>No users yet</h2>
+            <p>Users will appear here after registration endpoints are implemented.</p>
+        </div>
+    }
+    else
+    {
+        <div class="admin-table-wrap">
+            <table class="table admin-table align-middle">
+                <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Verified</th>
+                    <th>Subscriptions</th>
+                    <th>Created</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Email</td>
+                        <td>@(user.IsEmailVerified ? "Yes" : "No")</td>
+                        <td>@user.SubscriptionCount</td>
+                        <td>@user.CreatedAt.ToString("yyyy-MM-dd")</td>
+                        <td class="admin-row-actions">
+                            <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</section>

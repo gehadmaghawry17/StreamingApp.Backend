@@ -9,6 +9,15 @@
 StreamView is a backend REST API for a movie and series streaming platform.  
 It handles authentication, content management, subscription billing, user engagement, and offline downloads.
 
+The solution now has two presentation projects over the same application/domain/infrastructure/database layers:
+
+| Project | Purpose | Local URL |
+|---|---|---|
+| `StreamingApp.API` | REST API consumed by the Android app | `http://localhost:5062/openapi/v1.json` |
+| `StreamingApp.Admin` | ASP.NET Core MVC admin panel for managing database-backed content | `http://localhost:5041` |
+
+Both projects use the same `ApplicationDbContext` and the `DefaultConnection` connection string for `StreamViewDb`.
+
 **One rule guides every design decision:**  
 constraints and business rules live in the schema — not scattered across application code.
 

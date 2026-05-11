@@ -1,0 +1,46 @@
+@model UserFormViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<section class="admin-page admin-form-page">
+    <div class="admin-page-header">
+        <div>
+            <p class="admin-eyebrow">Accounts</p>
+            <h1>Edit User</h1>
+        </div>
+        <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+    </div>
+
+    <form class="admin-form" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <input asp-for="Id" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="admin-form-grid">
+            <div class="admin-field">
+                <label class="form-label" asp-for="Email"></label>
+                <input class="form-control" asp-for="Email" autocomplete="off" />
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+
+            <div class="admin-field">
+                <label class="form-label" asp-for="IsEmailVerified"></label>
+                <div class="form-check admin-check">
+                    <input class="form-check-input" asp-for="IsEmailVerified" />
+                    <label class="form-check-label" asp-for="IsEmailVerified">Verified</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-form-actions">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,24 @@
+@model PromotedContentFormViewModel
+
+@{
+    ViewData["Title"] = "New Promotion";
+}
+
+<section class="admin-page admin-form-page">
+    <div class="admin-page-header">
+        <div>
+            <p class="admin-eyebrow">Platform</p>
+            <h1>New Promotion</h1>
+        </div>
+        <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+    </div>
+
+    <form class="admin-form" asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <partial name="_PromotedContentForm" model="Model" />
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

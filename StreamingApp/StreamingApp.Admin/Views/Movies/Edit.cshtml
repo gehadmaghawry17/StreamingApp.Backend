@@ -1,0 +1,25 @@
+@model MovieFormViewModel
+
+@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+<section class="admin-page admin-form-page">
+    <div class="admin-page-header">
+        <div>
+            <p class="admin-eyebrow">Content</p>
+            <h1>Edit Movie</h1>
+        </div>
+        <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+    </div>
+
+    <form class="admin-form" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <input asp-for="Id" type="hidden" />
+        <partial name="_MovieForm" model="Model" />
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

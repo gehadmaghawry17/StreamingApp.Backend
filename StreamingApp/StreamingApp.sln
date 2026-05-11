@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamingApp.UnitTests", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamingApp.IntegrationTests", "StreamingApp.IntegrationTests\StreamingApp.IntegrationTests.csproj", "{FACB71A4-F042-48C1-94B2-A511AA79CA53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamingApp.Admin", "StreamingApp.Admin\StreamingApp.Admin.csproj", "{43D1A856-AF55-46D7-84F1-A1AEC4815C8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{FACB71A4-F042-48C1-94B2-A511AA79CA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FACB71A4-F042-48C1-94B2-A511AA79CA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FACB71A4-F042-48C1-94B2-A511AA79CA53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D1A856-AF55-46D7-84F1-A1AEC4815C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D1A856-AF55-46D7-84F1-A1AEC4815C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D1A856-AF55-46D7-84F1-A1AEC4815C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D1A856-AF55-46D7-84F1-A1AEC4815C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{D34CB436-120F-4DDD-9D7E-1FD50EEC0E8D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{D66F8952-59E5-4099-BB3F-72A0A8E0A3A2} = {56A5BE49-8274-45EF-BD00-71151AB02D65}
 		{FACB71A4-F042-48C1-94B2-A511AA79CA53} = {56A5BE49-8274-45EF-BD00-71151AB02D65}
+		{43D1A856-AF55-46D7-84F1-A1AEC4815C8C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D305D5C4-8C84-4E4A-AD60-5C37AB7C530B}

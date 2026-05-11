@@ -23,6 +23,20 @@ namespace StreamingApp.API
 
             if (app.Environment.IsDevelopment())
             {
+                try
+                {
+                    using var scope = app.Services.CreateScope();
+                    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                    dbContext.Database.Migrate();
+                }
+                catch (Exception exception)
+                {
+                    app.Logger.LogWarning(exception, "Unable to apply database migrations.");
+                }
+            }
+
+            if (app.Environment.IsDevelopment())
+            {
                 app.MapOpenApi();
             }
 
